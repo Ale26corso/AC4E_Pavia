@@ -38,3 +38,53 @@
 - **Template:** `templates/spec/intent.md` (economics research intent stub)
 - **Docs:** `days/day2.md`, `agent-harness/README.md`, `tool-lanes/cursor.md`
 - **Verification:** `python3 -m pytest examples/mini-economics/tests` — 3 passed
+
+---
+
+## Session: GUIDE.md Day 3 sync (2026-06-24)
+
+**User request:** Bring `GUIDE.md` up to date with Day 3 content (hooks, loops, goals, plugins, new subagents/skills, CK examples, 9 exercises).
+
+**Changes to `GUIDE.md`:**
+- Updated intro, workshop sequence table, and "What You Will Be Able To Do"
+- Expanded §27 harness table, §28 skills, §29 subagents, §32 swarms (CK swarm pointer)
+- Added §34–39: AC bridge, CK orchestration, hooks, loops, goals, plugins
+- Renumbered Part VI (§40–43) and Part VII (§44–49)
+- Replaced §46 Day 3 exercises with 9-exercise CK set; points to `exercises/day3-agent-workflows.md`
+- Expanded §48 final checklist
+
+---
+
+## Session: continual-learning run (2026-06-24)
+
+**Trigger:** User requested `continual-learning` skill with `agents-memory-updater` subagent.
+
+**Processed:** 21 delta transcripts (61 total indexed in `continual-learning-index.json`).
+
+**AGENTS.md updates:** 2 preferences + 4 workspace facts (economic research language, participant-facing slides, AC4E_Pavia mirror details, Card-Krueger canonical example, Day 3 hooks/loops/goals/plugins module, didbjs goals reference).
+
+---
+
+## Session: Multi-agent harness (Cursor, Codex, Claude Code) — 2026-06-24
+
+**User request:** Create Codex and Claude Code examples mirroring `.cursor/`; reorganize `agent-harness/` into `cursor/`, `codex/`, and `claude/` folders; update `GUIDE.md` with per-tool harness mapping.
+
+**Branch:** `feature/multi-agent-harness-examples`
+
+**Added project-native examples:**
+- `.codex/agents/*.toml` — subagents in Codex TOML format
+- `.codex/hooks/` — economics hooks + `post_edit_did_analysis.py`
+- `.codex/config.toml`, `.codex/README.md`
+- `.claude/agents/*.md`, `.claude/skills/`, `.claude/hooks/`, `.claude/settings.example.json`, `.claude/README.md`
+- `.agents/skills/` — Codex skill discovery path (sdd, replication-checker, hooks, loop-on-verification)
+
+**Reorganized `agent-harness/`:**
+- `cursor/` — markdown subagents, skills, hooks, MCP example
+- `codex/` — TOML agents, skills, hooks, MCP `config.toml.example`
+- `claude/` — markdown agents, skills, hooks, MCP `mcp.json.example`
+- Redirect READMEs at `agent-harness/skills/` and `agent-harness/subagents/`
+
+**Docs:** `GUIDE.md` §27a (harness by coding agent); path updates across days, exercises, topics, tool-lanes.
+
+**Verification:** `python3 -m pytest examples/mini-economics/tests agent-harness/mcp/fred/tests` — 14 passed.
+
